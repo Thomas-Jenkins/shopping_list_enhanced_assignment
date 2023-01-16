@@ -1,10 +1,9 @@
-export default function ShoppingListItem({ item }) {
+export default function ListItem({ item }) {
   return (
-    <main>
+    <div>
       {item.item_name}
       {item.quantity}
       <input type="checkbox" value={item.done} />
-            
-    </main>
+    </div>
   );
 }

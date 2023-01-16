@@ -1,8 +1,25 @@
-import { useContext } from "react";
+import ListItems from '../List/ListItems';
+import { useContext, useEffect } from 'react';
+import { Context } from '../ShoppingListProvider';
+import { getShoppingListItems } from '../../services/shopping-list-items';
+import { shoppingListLoadAction } from '../../actions/shoppingListActions';
+
+
 
 export default function ShoppingListPage() {
-  return <section>
-    <h1>My Shopping List</h1>
+  const { state, dispatch } = useContext(Context);
+  useEffect(() => {
+    (async () => {
+      const shoppingItems = await getShoppingListItems(); 
+      console.log(shoppingItems);
+      dispatch(shoppingListLoadAction(shoppingItems));
+    })();
+  }, []);
 
-  </section>;
+  return <>
+    <div>
+      <h1>My Shopping List</h1>    
+      <ListItems shoppingList={state.shoppingList} />
+    </div>
+  </>;
 }
