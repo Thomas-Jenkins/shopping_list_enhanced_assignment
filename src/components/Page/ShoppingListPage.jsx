@@ -11,9 +11,9 @@ export default function ShoppingListPage() {
   useEffect(() => {
     (async () => {
       const shoppingItems = await getShoppingListItems(); 
-      console.log(shoppingItems);
+      
       dispatch(shoppingListLoadAction(shoppingItems));
-    })();
+    });
   }, []);
 
   return <>
