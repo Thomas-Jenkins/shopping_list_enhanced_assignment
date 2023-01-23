@@ -8,6 +8,7 @@ export async function getShoppingListItems() {
 `)
     .order('created_at', { ascending: false })
   ;
+  console.log(response);
   return checkError(response);
 }
 

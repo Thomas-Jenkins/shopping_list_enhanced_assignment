@@ -1,10 +1,10 @@
 import ListItem from './ListItem';
 
-export default function ListItems({ list }) {
+export default function ListItems({ shoppingList }) {
   return (
     <>
       <ol>
-        {list.map((item) => {
+        {shoppingList.map((item) => {
           return (
             <li key={item.id}>
               <ListItem item={item} />

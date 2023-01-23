@@ -8,10 +8,11 @@ import { shoppingListLoadAction } from '../../actions/shoppingListActions';
 
 export default function ShoppingListPage() {
   const { state, dispatch } = useContext(Context);
+  console.log('state: ', state);
   useEffect(() => {
     (async () => {
       const shoppingItems = await getShoppingListItems(); 
-      
+      console.log('shoppingListPage:', shoppingItems);
       dispatch(shoppingListLoadAction(shoppingItems));
     });
   }, []);
