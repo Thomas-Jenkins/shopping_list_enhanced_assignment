@@ -4,17 +4,15 @@ import { Context } from '../ShoppingListProvider';
 import { getShoppingListItems } from '../../services/shopping-list-items';
 import { shoppingListLoadAction } from '../../actions/shoppingListActions';
 
-
+import { getListEffect } from '../../effects/list-effects';
 
 export default function ShoppingListPage() {
   const { state, dispatch } = useContext(Context);
   console.log('state: ', state);
   useEffect(() => {
-    (async () => {
-      const shoppingItems = await getShoppingListItems(); 
-      console.log('shoppingListPage:', shoppingItems);
-      dispatch(shoppingListLoadAction(shoppingItems));
-    });
+  
+    getListEffect(dispatch);
+    
   }, []);
 
   return <>

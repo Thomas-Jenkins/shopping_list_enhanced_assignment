@@ -1,6 +1,6 @@
-export const shoppingListLoadAction = (list) => {
+export const shoppingListLoadAction = (shoppingList) => {
   return {
     type: 'shopping-list-load',
-    list,
+    shoppingList,
   };
 };
