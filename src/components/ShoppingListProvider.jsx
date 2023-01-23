@@ -19,8 +19,6 @@ export const ShoppingListProvider = ({ children }) => {
     initialState()
   );
 
-  console.log('state in provider: ', state);
-
   const contextObject = { state, dispatch };
   return (
     <Context.Provider value={contextObject}>

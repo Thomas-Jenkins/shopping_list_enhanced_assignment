@@ -3,7 +3,6 @@ import { getShoppingListItems } from '../services/shopping-list-items';
 
 
 export const getListEffect = async (dispatch) => {
-  const items = await getShoppingListItems();
-  console.log('items', items);
-  dispatch(shoppingListLoadAction(items));
+  const data = await getShoppingListItems();
+  dispatch(shoppingListLoadAction(data));
 };
