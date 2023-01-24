@@ -6,7 +6,7 @@ export default function ListItem({
     <div>
       {item.item_name}
       {item.quantity}
-      <input type="checkbox" value={item.done} onChange={() => {
+      <input type="checkbox" checked={item.done} onChange={() => {
         onItemDoneChanged(!item.done);
       }}/>
     </div>
