@@ -3,6 +3,7 @@ export const initialState = () => {
     shoppingList: [],
     item_name: '',
     quantity: 0,
+    done: false,
   };
 };
 export const reducer = (state, action) => {
@@ -22,6 +23,11 @@ export const reducer = (state, action) => {
         ...state,
         quantity: action.quantity,
       };
+    case 'shopping-list-item-done-change':
+      return {
+        ...state,
+        done: action.done
+      };  
     default:
       return state;
   }

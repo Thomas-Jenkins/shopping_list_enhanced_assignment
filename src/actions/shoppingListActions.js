@@ -18,3 +18,10 @@ export const shoppingListItemQuantityAdd = (quantity) => {
     type: 'shopping-list-item-quantity-add',
   };
 };
+
+export const shoppingListItemDoneChange = (done) => {
+  return {
+    done,
+    type: 'shopping-list-item-done-change'
+  };
+};

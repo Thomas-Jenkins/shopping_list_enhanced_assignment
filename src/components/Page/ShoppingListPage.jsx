@@ -5,12 +5,13 @@ import { useContext, useEffect } from 'react';
 import { Context } from '../ShoppingListProvider';
 
 import { 
-  createShoppingListItem, 
+  createShoppingListItem, updateShoppingItem, 
 // getShoppingListItems, 
 } from '../../services/shopping-list-items';
 
 import { 
   shoppingListItemAdd,
+  shoppingListItemDoneChange,
   shoppingListItemQuantityAdd,
   // shoppingListLoadAction
 } from '../../actions/shoppingListActions';
@@ -32,10 +33,19 @@ export default function ShoppingListPage() {
     dispatch(shoppingListItemQuantityAdd(quantity));
   };
 
+  const onItemDoneChanged = (itemId, done) => {
+    dispatch(shoppingListItemDoneChange(done));
+  };
+
   return <>
     <section>
       <h1>My Shopping List</h1>    
-      <ListItems shoppingList={state.shoppingList} />
+      <ListItems 
+        shoppingList={state.shoppingList}
+        onItemDoneChanged={async (itemId, done) => {
+          await updateShoppingItem(itemId, done);
+          onItemDoneChanged(itemId, done);
+        }} />
     </section>
     <section>
       <h1>Shopping List Item Input</h1>
