@@ -17,7 +17,7 @@ import {
 } from '../../actions/shoppingListActions';
 
 import { getListEffect } from '../../effects/list-effects';
-import ListItemForm from '../List/listItemForm';
+import ListItemForm from '../List/ListItemForm';
 
 export default function ShoppingListPage() {
   const { state, dispatch } = useContext(Context);
